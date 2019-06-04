@@ -14,8 +14,9 @@ namespace HMS.Entities
         public Accomodation Accomodation { get; set; }
 
         public DateTime FromDate { get; set; }
+
         /// <summary>
-        /// Number of nights
+        /// Number of Stay nights
         /// </summary>
         public int Duration { get; set; }
 
