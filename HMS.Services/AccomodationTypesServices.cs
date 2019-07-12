@@ -1,5 +1,5 @@
 ﻿using HMS.Data;
-using HMS.Web.Areas.Dashboard.ViewModels;
+using HMS.Entities;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,12 +10,47 @@ namespace HMS.Services
 {
     public class AccomodationTypesServices
     {
-        //public IEnumerable<AccomodationTypeModel> GetAllAccomodationTypes()
-        //{
-        //    using (HMSContext context = new HMSContext())
-        //    {
+        public IEnumerable<AccomodationType> GetAllAccomodationTypes()
+        {
+            var context = new HMSContext();
 
-        //    }
-        //}
+            return context.AccomodationTypes.AsEnumerable();
+        }
+        public AccomodationType GetAccomodationTypesById(int id)
+        {
+            var context = new HMSContext();
+
+            return context.AccomodationTypes.FirstOrDefault(x=> x.Id==id);
+        }
+
+        public bool SaveChangesAccomodationType(AccomodationType accomodationType)
+        {
+            var context = new HMSContext();
+            context.AccomodationTypes.Add(accomodationType);
+
+
+            return context.SaveChanges() > 0;
+        }
+        public bool UpdateChangesAccomodationType(AccomodationType accomodationType)
+        {
+            var context = new HMSContext();
+
+            context.Entry(accomodationType).State = System.Data.Entity.EntityState.Modified;
+
+
+            return context.SaveChanges() > 0;
+        }
+
+        public bool DeleteAccomodationType(AccomodationType accomodationType)
+        {
+            var context = new HMSContext();
+
+            context.Entry(accomodationType).State = System.Data.Entity.EntityState.Deleted;
+
+
+            return context.SaveChanges() > 0;
+        }
     }
+    
+    
 }

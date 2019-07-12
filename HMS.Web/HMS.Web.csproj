@@ -45,6 +45,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.0\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System" />
     <Reference Include="System.Data" />
@@ -157,9 +160,6 @@
     <Reference Include="Microsoft.Owin.Security.OAuth">
       <HintPath>..\packages\Microsoft.Owin.Security.OAuth.4.0.0\lib\net451\Microsoft.Owin.Security.OAuth.dll</HintPath>
     </Reference>
-    <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform">
-      <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.0\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
-    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\BundleConfig.cs" />
@@ -225,8 +225,10 @@
     <Content Include="Areas\Dashboard\Views\_ViewStart.cshtml" />
     <Content Include="Areas\Dashboard\Views\Shared\_Layout.cshtml" />
     <Content Include="Areas\Dashboard\Views\Dashboard\Index.cshtml" />
-    <Content Include="Areas\Dashboard\Views\AccomodationType\_Listing.cshtml" />
     <Content Include="Areas\Dashboard\Views\AccomodationType\Index.cshtml" />
+    <Content Include="Areas\Dashboard\Views\AccomodationType\_Listing.cshtml" />
+    <Content Include="Areas\Dashboard\Views\AccomodationType\_Action.cshtml" />
+    <Content Include="Areas\Dashboard\Views\AccomodationType\_Delete.cshtml" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
     <Content Include="Scripts\jquery-3.3.1.min.js" />
@@ -298,6 +300,10 @@
     <ProjectReference Include="..\HMS.Entities\HMS.Entities.csproj">
       <Project>{ACA1E45D-F257-4D91-865E-40C0C35B1476}</Project>
       <Name>HMS.Entities</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\HMS.Services\HMS.Services.csproj">
+      <Project>{a74a2b7f-d958-44ca-a79c-93854b864364}</Project>
+      <Name>HMS.Services</Name>
     </ProjectReference>
   </ItemGroup>
   <PropertyGroup>

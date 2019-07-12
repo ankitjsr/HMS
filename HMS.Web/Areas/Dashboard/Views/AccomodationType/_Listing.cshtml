@@ -1,1 +1,37 @@
-﻿
+﻿@model HMS.Web.Areas.Dashboard.ViewModels.AccomodationTypeListingModel
+
+
+@if (Model != null && Model.AccomodationTypes != null && Model.AccomodationTypes.Count() > 0)
+{
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th scope="col">Name</th>
+                <th scope="col">Description</th>
+                <th scope="col">Action</th>
+            </tr>
+        </thead>
+        <tbody>
+
+            @foreach (var accomodationtype in Model.AccomodationTypes)
+            {
+                <tr>
+                    <td>@accomodationtype.Name</td>
+                    <td>@accomodationtype.Description</td>
+                    <td>
+                        <button id="editbtn" data-href="@Url.Action("Action","AccomodationType",new { Id=accomodationtype.Id})" data-toggle="modal" data-target="#ActionModal" type="button" class="data-btn btn btn-success">Edit</button>
+                        <button type="button" data-href="@Url.Action("Delete","AccomodationType",new { Id=accomodationtype.Id})" data-toggle="modal" data-target="#ActionModal"  class="data-btn btn btn-danger">Delete</button>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+
+}
+else
+{
+    <div class="alert alert-danger" role="alert">
+        No records found!!
+    </div>
+
+}

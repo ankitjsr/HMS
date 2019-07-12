@@ -65,10 +65,6 @@
       <Project>{aca1e45d-f257-4d91-865e-40c0c35b1476}</Project>
       <Name>HMS.Entities</Name>
     </ProjectReference>
-    <ProjectReference Include="..\HMS.Web\HMS.Web.csproj">
-      <Project>{FB461F76-5513-4E0E-9993-71B24D9CF7C5}</Project>
-      <Name>HMS.Web</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

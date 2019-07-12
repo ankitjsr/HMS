@@ -11,8 +11,8 @@ using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin;
 using Microsoft.Owin.Security;
 using HMS.Web.Models;
-using HMS.Data;
 using HMS.Entities;
+using HMS.Data;
 
 namespace HMS.Web
 {

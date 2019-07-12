@@ -1,7 +1,56 @@
 ﻿
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Accomodation Types";
 }
 
-<h2>Index</h2>
+<div class="row">
+    <div class="col col-lg-12">
+        <h2>Accomodation Types</h2>
+    </div>
+</div>
+
+<!-- Search, Delete,Reset -->
+<div class="row mb-3">
+    <div class="col col-lg-12">
+        <div class="input-group">
+            <input type="text" class="form-control" placeholder="Search ">
+            <div class="input-group-append">
+                <button class="btn btn-outline-primary" type="button">Search</button>
+                <button id="createaction" data-href="@Url.Action("Action","AccomodationType")" class="data-btn btn btn-outline-success" type="button" data-toggle="modal" data-target="#ActionModal">Create</button>
+                <button class="btn btn-outline-secondary" type="button">Reset</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!-- Listings -->
+<div class="row">
+    <div class="col col-lg-12">
+        @{ Html.RenderAction("listing");}
+    </div>
+</div>
+
+
+
+<!-- Modal -->
+<div class="modal fade" id="ActionModal" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+
+    </div>
+</div>
+
+
+
+<script>
+    $('.data-btn').click(function () {
+        $.ajax({
+            url: $(this).attr('data-href')
+        })
+            .done(function (response) {
+                $("#ActionModal .modal-dialog").html(response);
+            });
+    });
+</script>
+
 

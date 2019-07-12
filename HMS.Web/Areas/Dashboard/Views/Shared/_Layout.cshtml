@@ -15,6 +15,10 @@
     <link href="~/Areas/Dashboard/Content/css/simple-sidebar.css" rel="stylesheet" />
 
     <script src="https://kit.fontawesome.com/9e4799996f.js"></script>
+       <!-- Bootstrap core JavaScript -->
+    <script src="~/Areas/Dashboard/Content/vendor/jquery/jquery.min.js"></script>
+
+    <script src="~/Areas/Dashboard/Content/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
 </head>
 <body>
@@ -23,7 +27,7 @@
         <div class="bg-light border-right" id="sidebar-wrapper">
             <div class="sidebar-heading"><i class="fas fa-hotel mr-3"></i><b> H M S </b></div>
             <div class="list-group list-group-flush">
-                <a href="@Url.Action("AccomodationTypes","Accomodation")" class="list-group-item list-group-item-action bg-light"><i class="fas fa-home mr-2"></i>Accomodation Types</a>
+                <a href="@Url.Action("Index","AccomodationType")" class="list-group-item list-group-item-action bg-light"><i class="fas fa-home mr-2"></i>Accomodation Types</a>
                 <a href="@Url.Action("Index","Roles")" class="list-group-item list-group-item-action bg-light "><i class="fas fa-user-tag mr-2"></i>Roles</a>
                 <a href="@Url.Action("Index","Users")" class="list-group-item list-group-item-action bg-light"><i class="fas fa-users mr-2"></i>User</a>
 
@@ -74,10 +78,7 @@
     }
 
     <!-- /#wrapper -->
-    <!-- Bootstrap core JavaScript -->
-    <script src="~/Areas/Dashboard/Content/vendor/jquery/jquery.min.js"></script>
-
-    <script src="~/Areas/Dashboard/Content/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+ 
     <!-- Menu Toggle Script -->
     <script>
         $("#menu-toggle").click(function (e) {

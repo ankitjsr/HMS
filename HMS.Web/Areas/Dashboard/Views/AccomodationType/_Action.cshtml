@@ -1,0 +1,64 @@
+﻿@model HMS.Web.Areas.Dashboard.ViewModels.AccomodationTypeActionModel
+
+
+
+@if (Model != null)
+{
+    <div class="modal-content">
+        <div class="modal-header">
+            <h5 class="modal-title">
+                @if (Model.Id >0)
+                {
+                <span>Edit AccomodationType</span>
+                }
+                else
+                {
+                <span>Create AccomodationType</span>
+                }
+
+            </h5>
+        </div>
+        <div class="modal-body">
+            <form id="actionform">
+                <input type="hidden" name="ID" value="@Model.Id" />
+                <div class="form-group">
+                    <label >Name</label>
+                    <input type="text" name="Name" class="form-control"  placeholder="Enter name" value="@Model.Name">
+                   
+                </div>
+                <div class="form-group">
+                    <label >Description</label>
+                    <textarea  class="form-control" name="Description" placeholder="Enter accomodation type description" >@Model.Description</textarea>
+                </div>
+               <div class="error"></div>
+            </form>
+        </div>
+        <div class="modal-footer">
+            <button id="savebtn" type="button" class="btn btn-primary">Save changes</button>
+            <button id="=actionbtn" type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+
+        </div>
+    </div>
+}
+
+<script>
+    $('#savebtn').click(function () {
+        $.ajax({
+            url: '@Url.Action("Action","AccomodationType")',
+            type:'POST',
+            data: $('#actionform').serialize()
+        })
+            .done(function (response) {
+                if (response.Success) {
+                    location.reload();
+                }
+                else {
+                    $(".error").html(respnse.message);
+                }
+            });
+    });
+</script>
+
+
+
+

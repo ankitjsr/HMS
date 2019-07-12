@@ -1,0 +1,52 @@
+﻿
+@model HMS.Web.Areas.Dashboard.ViewModels.AccomodationTypeActionModel
+
+
+
+@if (Model != null)
+{
+    <div class="modal-content">
+        <div class="modal-header">
+            <h5 class="modal-title">
+               <span>Delete Accomodation Type</span>
+            </h5>
+        </div>
+        <div class="modal-body">
+            <form id="actionform">
+                <input type="hidden" name="ID" value="@Model.Id" />
+
+            </form>
+            <div class="alert alert-danger" role="alert">
+                You want to delete ??
+            </div>
+            <div class="error"></div>
+        </div>
+        <div class="modal-footer">
+            <button id="Deletebtn" type="button" class="btn btn-primary">Delete</button>
+            <button type="button" clsass="btn btn-secondary" data-dismiss="modal">Cancel</button>
+
+        </div>
+    </div>
+}
+
+<script>
+    $('#Deletebtn').click(function () {
+        $.ajax({
+            url: '@Url.Action("Delete","AccomodationType")',
+            type:'POST',
+            data: $('#actionform').serialize()
+        })
+            .done(function (response) {
+                if (response.Success) {
+                    location.reload();
+                }
+                else {
+                    $(".error").html(respnse.message);
+                }
+            });
+    });
+</script>
+
+
+
+
